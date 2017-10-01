@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SecureNote</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+
+    <style type="text/css">
+        .footer {
+            position: absolute;
+            bottom: -1em;
+            width: 100%;
+        }
+
+        .header {
+            position: absolute;
+            top: 0em;
+            width: 100%;
+        }
+
+
+        .logo {
+            border: 0 !important;
+            max-width: 200px !important;
+            max-height: 200px !important;
+            margin-left: 100% !important;
+        }
+
+        .img64{
+            border: 0 !important;
+            max-width: 64px !important;
+            max-height: 64px !important;
+        }
+
+        .tbltxt {
+            vertical-align: middle !important;
+        }
+
+        .noborder {
+            border: 0 !important;
+        }
+
+        .tbl_li > tbody > tr > td {
+            padding: 0px !important;
+            vertical-align: middle !important;
+        }
+
+        .tbl_li{
+            padding: 0px !important;
+            margin:  0px !important;
+        }
+
+        .tbl_small> tbody > tr > td {
+            padding: 0px !important;
+            vertical-align: middle !important;
+            font-size: 30% !important;
+        }
+
+        .tbl_small{
+            padding: 0px !important;
+            margin:  0px !important;
+        }
+
+        .fragment.visible:not(.current-fragment){
+            display: none;
+            height:0px;
+            line-height: 0px;
+            font-size: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-transition="slide" data-transition-speed="fast">
+            <h1>Webanwendungen</h1>
+            <img data-transition="slide" data-src="media/if_social_69_1039325.svg" style="width:25%;height:25%"/>
+            <p>Self-Hosted Plattform für Notizen und Dokumentenmanagement</p>
+            <hr/>
+            <p>Leon Albers, Michael Zeeb, Sebastian Sauter</p>
+        </section>
+        <section data-transition="slide" data-transitionSpeed="fast">
+            <h1>Inhalt</h1>
+            <hr/>
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><small><b>1)</b> Projektidee</small></td>
+                                <td><img style="vertical-align: middle" class="img64" src="media/if_handdrawn-lightbulb_335392.svg" /></td>
+                            </tr>
+                            <tr>
+                                <td><small><b>2)</b>Features</small></td>
+                                <td><img style="vertical-align: middle" class="img64" src="media/if_5352_-_HTML5_1314220.svg" /></td>
+                            </tr>
+                            <tr>
+                                <td><small><b>3)</b>Unser USP</small></td>
+                                <td><img style="vertical-align: middle" class="img64" src="media/if_star_370074.svg" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><small><b>4)</b> Milestones</small></td>
+                                <td><img  style="vertical-align: middle; min-width: 64px !important;" class="img64" src="media/if_checklist_1891420.svg" /></td>
+                            </tr>
+                            <tr>
+                                <td><small><b>5)</b>Deployment</small></td>
+                                <td><img style="vertical-align: middle; min-width: 64px !important;" class="img64" src="media/if_social_media_social_media_logo_docker_1907132.svg" /></td>
+                            </tr>
+                            <tr>
+                                <td><small><b>6)</b>Ausblick</small></td>
+                                <td><img style="vertical-align: middle; min-width: 64px !important;" class="img64" src="media/if_icon-41-target-arrow_315792.svg" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--ul>
+                <li>Projektidee</li>
+                <li>Features</li>
+                <li>Unser USP</li>
+                <li>Milestones</li>
+                <li>Ausblick</li>
+            </ul-->
+        </section>
+        <section>
+            <section data-transition="slide">
+                <h1>Projektidee</h1>
+                <hr />
+                <h3>Freie Alternative zu Evernote</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="media/laverna.cc.png" />
+                            <br />
+                            <small style="color:darkgrey;">Quelle: https://laverna.cc/</small>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Open-Source <small>(Mozilla Public License 2.0)</small></li>
+                                <li>Kein Teamwork möglich</li>
+                                <li>Markup-Language</li>
+                                <li>Fehlende Dienste</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section data-transition="slide">
+                <h1>Projektidee</h1>
+                <hr />
+                <h3>Evernote</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Closed Source</li>
+                                <li>Kein Self-Host</li>
+                                <li>Probleme beim gleichzeitigen Bearbeiten</li>
+                                <li>Datenschutzbedenken *</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <img src="media/evernote.png" />
+                            <br />
+                            <small style="color:darkgrey;">Quelle: https://evernote.com/</small>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section data-transition="slide">
+                <h1>Projektidee</h1>
+                <hr />
+                <h3>SecureNote</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Sichere Note-Taking Application</li>
+                                <li>Live-Arbeit durch WebSockets</li>
+                                <li>Self-Host für volle Kontrolle</li>
+                                <li>Moderne Benutzeroberfläche</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <img class="noborder" src="media/t_social%20media%20marketing.gif" />
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Features</h1>
+                <hr />
+                <img class="img64" src="media/if_checklist_1891420.svg" />
+                <br>
+                <p>Aufgeteilt in <span style="color:green">Must-Have</span> und <span style="color:darkblue">Nice-to-Have Features</span></p>
+            </section>
+            <section>
+                <h1>Features</h1>
+                <hr />
+                <p>Nutzerverwaltung</p>
+                <hr />
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Unterstüzung von SMTP</b></small>
+                                        <br />
+                                        <small>Für PW-Reset oder Benachrichtigungen</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Benutzergruppen</b></small>
+                                        <br />
+                                        <small>Gruppenrechte, Admin und User</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Teilen von Notizen</b></small>
+                                        <br />
+                                        <small>Über Link</small>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">Gleichzeitiges Bearbeiten</b></small>
+                                        <br />
+                                        <small>Durch Websockets</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">Dritt Authentifizierung</b></small>
+                                        <br />
+                                        <small>Zusammenarbeit mit anderen Servern</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">2-Faktor Auth</b></small>
+                                        <br />
+                                        <small>z.B. über GoogleAuthenticator</small>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h1>Features</h1>
+                <hr />
+                <p>Notizmangement</p>
+                <hr />
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Anlegen von Notizen</b></small>
+                                        <br />
+                                        <small>Bearbeiten mit WYSIWYG-Editor</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Notizbücher</b></small>
+                                        <br />
+                                        <small>Zur Organisation</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:green">Suche und Tags</b></small>
+                                        <br />
+                                        <small>z.B. #wichtig</small>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">OwnCloud Integration</b></small>
+                                        <br />
+                                        <small>Dateien aus OC hinzufügen</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">GDrive Integration</b></small>
+                                        <br />
+                                        <small>Dateien aus GDrive hinzufügen</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <small><b style="color:darkblue">Collaboration Tools</b></small>
+                                        <br />
+                                        <small>Severübergreifende Zusammenarbeit</small>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h1>Unser USP</h1>
+                <hr />
+            </section>
+        </section>
+
+
+        <section>
+            <section>
+                <h1>Milestones</h1>
+                <hr />
+            </section>
+        </section>
+
+
+        <section>
+            <section>
+                <h1>Ausblick</h1>
+                <hr />
+            </section>
+            <section data-transition="slide">
+                <h1>Ausblick</h1>
+                <hr />
+                <h3>OpenSource - Entwicklung auf GitHub</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <img style="max-height: 300px"; class="noborder" src="media/What-is-Git.gif" />
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Entwicklung unter <small>LGPL oder MIT</small></li>
+                                <li>Dokumentation Setup</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+            </section>
+        </section>
+
+
+        <div class="header">
+            <img class="logo" src="media/hs-logo.png"/>
+        </div>
+        <div class="footer">
+            <small>
+            </small>
+        </div>
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        slideNumber: 'c/t',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</div>
+</body>
+</html>
